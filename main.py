@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 
 # Routers
 from handlers import __all_routers__
+from handlers import __ai_setup_routers__
 
 # Get bot's token from '.env'
 load_dotenv()
@@ -23,6 +24,9 @@ async def main():
     dp = Dispatcher()
 
     for router in __all_routers__:
+        dp.include_router(router)
+
+    for router in __ai_setup_routers__:
         dp.include_router(router)
 
     await dp.start_polling(bot)

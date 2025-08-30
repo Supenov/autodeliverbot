@@ -1,13 +1,19 @@
-from .callbacks.shop import rt as shop_rt
-from .callbacks.back_to_menu import rt as back_to_menu_rt
-from .callbacks.user_profile import rt as profile_rt
-from .cmds.start import rt as start_rt
+from .callbacks.open_profile_callback import router as open_profile_callback_router
+from .callbacks.return_to_menu_callback import router as return_to_menu_callback_router
+from .callbacks.ai_setup.choose_model_callback import router as choose_model_callback_router
 
+from .cmds.cmd_menu import router as cmd_menu_router
+from .cmds.cmd_start import router as cmd_start_router
 
 # Список всех роутеров — удобно для импорта
 __all_routers__ = [
-    start_rt,
-    shop_rt,
-    profile_rt,
-    back_to_menu_rt,
+    return_to_menu_callback_router,
+    open_profile_callback_router,
+    cmd_start_router,
+    cmd_menu_router,
+]
+
+__ai_setup_routers__ = [
+    choose_model_callback_router,
+
 ]
